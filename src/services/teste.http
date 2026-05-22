@@ -1,0 +1,60 @@
+### Obtener todos los maniquies
+GET http://localhost:3000/maniquies
+
+### Obtener un maniqui por id
+GET http://localhost:3000/maniquies/1
+
+### Obtener todas las cabezas
+GET http://localhost:3000/cabezas
+
+### Obtener todos los torsos
+GET http://localhost:3000/torsos
+
+### Obtener todos los brazos
+GET http://localhost:3000/brazos
+
+### Obtener todas las piernas
+GET http://localhost:3000/piernas
+
+### Obtener materiales
+GET http://localhost:3000/materiales
+
+### Obtener colores
+GET http://localhost:3000/colores
+
+### Crear una cabeza
+POST http://localhost:3000/cabezas
+Content-Type: application/json
+
+{
+  "tipo": "cabeza",
+  "nro_serie": "CAB-004",
+  "fecha_fabricacion": "2026-05-01",
+  "id_modelo": 1
+}
+
+### Actualizar una cabeza
+PUT http://localhost:3000/cabezas/1
+Content-Type: application/json
+
+{
+  "nro_serie": "CAB-001-MOD"
+}
+
+### Eliminar una cabeza
+DELETE http://localhost:3000/cabezas/3
+
+### Crear un maniqui
+POST http://localhost:3000/maniquies
+Content-Type: application/json
+
+{
+  "codigo": "MAN-003",
+  "fecha_ensamblaje": "2026-05-19",
+  "id_cabeza": 3,
+  "id_torso": 3,
+  "id_brazo_izq": 1,
+  "id_brazo_der": 2,
+  "id_pierna_izq": 1,
+  "id_pierna_der": 2
+}
