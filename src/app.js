@@ -3,6 +3,7 @@ import cors from 'cors';
 import maniquiRoutes from './routers/maniqui.routes.js';
 import piezaRoutes from './routers/pieza.routes.js';
 import catalogoRoutes from './routers/catalogo.routes.js';
+import modeloRoutes from './routers/modelo.routes.js';
 
 const app = express();
 const PORT = 3000;
@@ -21,7 +22,10 @@ app.use('/cabezas', (req, res, next) => { req.tipo = 'cabezas'; next(); }, pieza
 app.use('/torsos', (req, res, next) => { req.tipo = 'torsos'; next(); }, piezaRoutes);
 app.use('/brazos', (req, res, next) => { req.tipo = 'brazos'; next(); }, piezaRoutes);
 app.use('/piernas', (req, res, next) => { req.tipo = 'piernas'; next(); }, piezaRoutes);
-app.use('/', catalogoRoutes);
+app.use('/materiales', (req, res, next) => { req.tipo = 'materiales'; next(); }, catalogoRoutes);
+app.use('/colores', (req, res, next) => { req.tipo = 'colores'; next(); }, catalogoRoutes);
+app.use('/modelos-pieza', (req, res, next) => { req.tipo = 'modelosPieza'; next(); }, modeloRoutes);
+app.use('/modelos-extremidad', (req, res, next) => { req.tipo = 'modelosExtremidad'; next(); }, modeloRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);

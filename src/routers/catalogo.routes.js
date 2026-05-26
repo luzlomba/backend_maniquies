@@ -1,14 +1,12 @@
 import { Router } from 'express';
-import { materiales, colores } from '../data/data.js';
+import catalogoController from '../controllers/catalogo.controller.js';
 
 const catalogoRoutes = Router();
 
-catalogoRoutes.get('/materiales', (req, res) => {
-  res.json(materiales);
-});
-
-catalogoRoutes.get('/colores', (req, res) => {
-  res.json(colores);
-});
+catalogoRoutes.get('/', catalogoController.getItems);
+catalogoRoutes.get('/:id', catalogoController.getItem);
+catalogoRoutes.post('/', catalogoController.createItem);
+catalogoRoutes.put('/:id', catalogoController.updateItem);
+catalogoRoutes.delete('/:id', catalogoController.deleteItem);
 
 export default catalogoRoutes;
